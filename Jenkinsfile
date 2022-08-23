@@ -23,6 +23,7 @@ node {
 
             archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals" 
             sh 'docker run --rm -v "$(pwd)/sources:/src" cdrx/pyinstaller-linux:python2 "rm -rf build dist"'
+            sh 'sleep 60'
         } finally {
             echo 'Done'
         }
