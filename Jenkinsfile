@@ -14,6 +14,9 @@ node {
            junit 'test-reports/results.xml'
         }
     }
+    stage('Manual Approval') {
+        input message: 'Lanjutkan ke tahap Deploy? (Tekan "Proceed" untuk melanjutkan)'
+    }
     stage('Deploy') {
         try {
             dir(path: env.BUILD_ID) { 
